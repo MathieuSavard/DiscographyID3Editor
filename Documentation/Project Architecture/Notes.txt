@@ -1,0 +1,6 @@
+Project
+|--- src
+|--- inc
+|--- app
+|--- libs
+|--- tests

@@ -1,0 +1,7 @@
+youtube-dl/archives.txt
+youtube-dl/Artist/*
+youtube-dl/youtube-dl.exe
+youtube-dl/ffmpeg/*
+Project/.vs/*
+Project/out/*
+Project/Builds/*
