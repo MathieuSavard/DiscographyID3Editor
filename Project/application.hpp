@@ -19,7 +19,7 @@ const string path_slash_separator = "/";
 
 class Application {
 public:
-  Application(ItfId3Editor& id3_editor, ItfFileSystem& file_system);
+  Application(ItfId3Editor* id3_editor, ItfFileSystem* file_system);
   int Start();
 
  private:

@@ -752,7 +752,7 @@ int Application::Start() {
   }
 }
 
-Application::Application(ItfId3Editor& id3_editor, ItfFileSystem& file_system) {
-  this->id3_editor = &id3_editor;
-  this->file_system = &file_system;
+Application::Application(ItfId3Editor* id3_editor, ItfFileSystem* file_system) {
+  this->id3_editor = id3_editor;
+  this->file_system = file_system;
 }

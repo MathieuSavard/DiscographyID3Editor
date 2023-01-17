@@ -2,12 +2,12 @@ import os
 import shutil
 import pathlib
 
-BuildFolderName = "Builds"
+BuildFolderName = "build"
 RootFolder = "."
 
-file = pathlib.Path("./Builds")
+file = pathlib.Path("./build")
 if file.exists ():
-  shutil.rmtree("./Builds")
-os.mkdir("./Builds")
-os.system('cmake -G "MinGW Makefiles" -B ./Builds -S .')
-os.system('cd ./Builds && mingw32-make.exe && cd ..')
+  shutil.rmtree("./build")
+os.mkdir("./build")
+os.system('cmake -G "MinGW Makefiles" -B ./build -S .')
+os.system('cd ./build && mingw32-make.exe && cd ..')
