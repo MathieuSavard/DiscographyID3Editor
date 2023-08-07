@@ -2,11 +2,13 @@
 
 #define TAGLIB_STATIC
 
+/*
 #include <mpegfile.h>
 #include <id3v2tag.h>
 #include <tfilestream.h>
 #include <attachedpictureframe.h>
 #include <mpegproperties.h>
+*/
 
 namespace msl {
 
@@ -18,7 +20,8 @@ TagLibId3Editor* TagLibId3Editor::Instance() {
 }
 
 void TagLibId3Editor::EditID3(const std::string& song_path, const SongId3& song_id3) {
-  TagLib::FileName song_file_name = song_path.c_str();
+  /*
+    TagLib::FileName song_file_name = song_path.c_str();
   TagLib::FileName album_cover_file_name = song_id3.album_cover_path.c_str();
 
   TagLib::ID3v2::AttachedPictureFrame* frame = new TagLib::ID3v2::AttachedPictureFrame();
@@ -41,13 +44,18 @@ void TagLibId3Editor::EditID3(const std::string& song_path, const SongId3& song_
   tag->addFrame(frame);
   
   song_file.save(TagLib::MPEG::File::TagTypes::ID3v2);
+  */
+
 }
 
 std::uint32_t TagLibId3Editor::GetDuration(const std::string& song_path) {
-  TagLib::FileName song_file_name = song_path.c_str();
+  /*
+    TagLib::FileName song_file_name = song_path.c_str();
   TagLib::MPEG::File song_file(song_file_name);
   TagLib::MPEG::Properties song_properties(&song_file, TagLib::AudioProperties::ReadStyle::Fast);
   return song_properties.lengthInSeconds();
+  */
+
 }
 
 } 

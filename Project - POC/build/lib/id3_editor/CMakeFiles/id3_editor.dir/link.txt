@@ -1,2 +1,0 @@
-C:\MinGW\bin\ar.exe qc libid3_editor.a CMakeFiles/id3_editor.dir/itf_id3_editor.cpp.obj
-C:\MinGW\bin\ranlib.exe libid3_editor.a

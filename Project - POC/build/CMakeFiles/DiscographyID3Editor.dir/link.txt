@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\DiscographyID3Editor.dir/objects.a
-C:\MinGW\bin\ar.exe qc CMakeFiles\DiscographyID3Editor.dir/objects.a @CMakeFiles\DiscographyID3Editor.dir\objects1.rsp
-C:\MinGW\bin\c++.exe -Wl,--whole-archive CMakeFiles\DiscographyID3Editor.dir/objects.a -Wl,--no-whole-archive -o DiscographyID3Editor.exe -Wl,--out-implib,libDiscographyID3Editor.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\DiscographyID3Editor.dir\linkLibs.rsp

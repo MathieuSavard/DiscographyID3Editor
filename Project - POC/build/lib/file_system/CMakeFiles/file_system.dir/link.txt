@@ -1,2 +1,0 @@
-C:\MinGW\bin\ar.exe qc libfile_system.a CMakeFiles/file_system.dir/itf_file_system.cpp.obj
-C:\MinGW\bin\ranlib.exe libfile_system.a
