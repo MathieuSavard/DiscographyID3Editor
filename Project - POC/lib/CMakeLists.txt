@@ -1,0 +1,2 @@
+add_subdirectory(id3_editor)
+add_subdirectory(file_system)

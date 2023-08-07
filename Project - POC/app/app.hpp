@@ -4,8 +4,8 @@
 #include <string>
 #include <vector>
 
-#include "id3_editor/itf_id3_editor.hpp"
-#include "file_system/itf_file_system.hpp"
+#include "itf_id3_editor.hpp"
+#include "itf_file_system.hpp"
 
 using namespace std;
 using namespace msl;

@@ -1,8 +1,6 @@
-#include "application.hpp"
-//#include "file_system/boost/boost_file_system.hpp"
-//#include "id3_editor/taglib/taglib_id3_editor.hpp"
+#include <iostream>
 
-int main(int argc, char* argv[]) {
-  Application application(NULL, NULL);
-  return application.Start();
+int main() {
+    std::cout << "Hello World!";
+    return 0;
 }

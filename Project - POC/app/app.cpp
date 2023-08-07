@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <iostream>
 
-#include "./application.hpp"
+#include "./app.hpp"
 
 void Application::EditId3s() {
   string current_albums_title = {};
