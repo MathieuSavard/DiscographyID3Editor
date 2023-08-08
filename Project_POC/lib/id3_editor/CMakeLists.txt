@@ -1,3 +1,5 @@
+set(ID3_EDITOR_TARGET_NAME id3_editor)
+
 #set(LIBRARY_CHOICE "TagLib" CACHE STRING "Select the library (TagLib, And, Other, or Lib)")
 set(LIBRARY_CHOICE "TagLib" CACHE STRING "Select the library (TagLib)")
 
@@ -12,7 +14,8 @@ if(NOT LIBRARY_CHOICE MATCHES "TAGLIB" AND
 endif()
 
 if(LIBRARY_CHOICE STREQUAL "TAGLIB")
-    add_subdirectory(taglib)
+    set(SUBDIRECTORY "TagLib")
+    set(SUBDIRECTORY_TARGET "my_taglib")
 #elseif(LIBRARY_CHOICE STREQUAL "AND")
     #add_subdirectory(and)
 #elseif(LIBRARY_CHOICE STREQUAL "OTHER")
@@ -21,7 +24,8 @@ if(LIBRARY_CHOICE STREQUAL "TAGLIB")
     #add_subdirectory(lib)
 endif()
 
-set(ID3_EDITOR_TARGET_NAME id3_editor)
+add_subdirectory(${SUBDIRECTORY})
+
 
 set(SOURCES
   itf_id3_editor.cpp
@@ -29,3 +33,4 @@ set(SOURCES
 
 add_library(${ID3_EDITOR_TARGET_NAME} STATIC ${SOURCES})
 target_include_directories(${ID3_EDITOR_TARGET_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(${ID3_EDITOR_TARGET_NAME} PUBLIC ${SUBDIRECTORY_TARGET})

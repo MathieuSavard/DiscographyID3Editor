@@ -7,5 +7,6 @@ set(SOURCES
 )
 
 add_library(${TAGLIB_TARGET_NAME} STATIC ${SOURCES})
-target_link_libraries(${TAGLIB_TARGET_NAME} PUBLIC taglib_static)
+target_link_libraries(${TAGLIB_TARGET_NAME} PUBLIC tag)
 target_include_directories(${TAGLIB_TARGET_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_sources(${TAGLIB_TARGET_NAME} PRIVATE taglib_id3_editor.hpp)

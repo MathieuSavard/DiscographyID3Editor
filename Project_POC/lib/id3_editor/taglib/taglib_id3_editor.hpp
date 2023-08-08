@@ -1,7 +1,7 @@
 #ifndef MSL_ID3_EDITOR_TAGLIB_TAGLIB_ID3_EDITOR_HPP_
 #define MSL_ID3_EDITOR_TAGLIB_TAGLIB_ID3_EDITOR_HPP_
 
-#include "itf_id3_editor.hpp"
+#include "../itf_id3_editor.hpp"
 
 namespace msl {
 
