@@ -1,4 +1,4 @@
-#include "id3_editor/taglib/taglib_id3_editor.hpp"
+#include "taglib_id3_editor.hpp"
 
 #define TAGLIB_STATIC
 

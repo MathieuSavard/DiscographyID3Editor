@@ -4,4 +4,5 @@ youtube-dl/youtube-dl.exe
 youtube-dl/ffmpeg/*
 Project/.vs/*
 Project/out/*
-Project/Builds/*
+Project/build/*
+Project_POC/build/*
