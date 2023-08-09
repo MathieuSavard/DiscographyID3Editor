@@ -1,8 +1,10 @@
 #include "app.hpp"
-//#include "file_system/boost/boost_file_system.hpp"
-#include "taglib_id3_editor.hpp"
+#include "id3_editor.hpp"
+#include <iostream>
 
 int main(int argc, char* argv[]) {
-  Application application(NULL, NULL);
-  return application.Start();
+  App app;
+  app.printMessage();
+  std::cout << Id3Editor::Instance()->GetDuration("C:/Users/mathi/Downloads/file_example_MP3_700KB.mp3") << std::endl;
+  return 0;
 }

@@ -5,9 +5,9 @@ import subprocess
 BuildFolderName = "build"
 RootPath = os.path.dirname(os.path.abspath(__file__))
 BuildPath = os.path.join(RootPath, BuildFolderName)
-#if os.path.exists(BuildPath):
-#        shutil.rmtree(BuildPath)
-#os.mkdir(BuildPath)
+if os.path.exists(BuildPath):
+        shutil.rmtree(BuildPath)
+os.mkdir(BuildPath)
 
 
 if os.name == 'nt':
