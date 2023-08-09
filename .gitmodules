@@ -1,0 +1,3 @@
+[submodule "DiscographyID3Editor/Project/lib/id3_editor/taglib"]
+	path = DiscographyID3Editor/Project/lib/id3_editor/taglib
+	url = https://github.com/taglib/taglib.git
