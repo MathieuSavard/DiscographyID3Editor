@@ -6,7 +6,7 @@
 #################### TagLib ####################
 #set(TAGLIB_TARGET_NAME tag)
 #add_library()
-#target_include_directories(${TAGLIB_TARGET_NAME} PUBLIC "C:/Libraries/taglib/include/taglib")
+#target_include_directories(${TAGLIB_TARGET_NAME} PUBLIC "C:/Program Files (x86)/taglib/include/taglib")
 ########################################################
 
 
@@ -21,8 +21,8 @@ set(SOURCES
 )
 add_library(${ID3_EDITOR_TARGET_NAME} STATIC ${SOURCES})
 target_include_directories(${ID3_EDITOR_TARGET_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_include_directories(${ID3_EDITOR_TARGET_NAME} PUBLIC "C:/Libraries/taglib/include/taglib")
-target_link_libraries(${ID3_EDITOR_TARGET_NAME} PUBLIC "C:/Libraries/taglib/lib/libtag.a")
+target_include_directories(${ID3_EDITOR_TARGET_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/taglib/include/taglib/)
+target_link_libraries(${ID3_EDITOR_TARGET_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/taglib/lib/libtag.a)
 
 #target_link_libraries(${ID3_EDITOR_TARGET_NAME} PUBLIC ${TAGLIB_TARGET_NAME})
 
