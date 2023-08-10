@@ -14,7 +14,7 @@ def clean_directory(directory):
     if os.path.exists(directory):
         shutil.rmtree(directory, ignore_errors=True)
 
-def configure_and_build_taglib(build_path, install_path, generator, with_zlib):
+def configure_and_build_taglib(build_path, install_path, generator):
     cmake_args = [
         "cmake",
         "-B", build_path,
@@ -25,9 +25,14 @@ def configure_and_build_taglib(build_path, install_path, generator, with_zlib):
         "-DBUILD_SHARED_LIBS=OFF",
         "-DBUILD_TESTS=OFF",
         "-DCMAKE_BUILD_TYPE=Release"
+        "-DENABLE_CCACHE=OFF"
+        "-DENABLE_STATIC_RUNTIME=OFF"
+        "-DNO_ITUNES_HACKS=OFF"
+        "-DPLATFORM_WINRT=OFF"
+        "-DTRACE_IN_RELEASE=OFF"
+        "-VISIBILITY_HIDDEN=OFF"
+        "-DWITH_ZLIB=OFF"
     ]
-    if not with_zlib:
-        cmake_args.append("-DWITH_ZLIB=OFF")
 
     run_command(cmake_args + ["-G", generator], cwd=build_path)
     run_command(["cmake", "--build", build_path])
@@ -55,4 +60,4 @@ run_command(["git", "submodule", "update", "--init"], cwd=TagLibPath)
 clean_directory(BuildPath)
 create_directory(BuildPath)
 
-configure_and_build_taglib(BuildPath, InstallPath, cmake_generator, with_zlib=False)
+configure_and_build_taglib(BuildPath, InstallPath, cmake_generator)
