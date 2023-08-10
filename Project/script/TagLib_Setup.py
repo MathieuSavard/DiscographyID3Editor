@@ -2,43 +2,57 @@ import os
 import shutil
 import subprocess
 import platform
+import sys
 
+def run_command(command, cwd=None):
+    subprocess.run(command, shell=True, cwd=cwd)
+
+def create_directory(directory):
+    os.makedirs(directory, exist_ok=True)
+
+def clean_directory(directory):
+    if os.path.exists(directory):
+        shutil.rmtree(directory, ignore_errors=True)
+
+def configure_and_build_taglib(build_path, install_path, generator, with_zlib):
+    cmake_args = [
+        "cmake",
+        "-B", build_path,
+        "-S", TagLibPath,
+        "-DCMAKE_INSTALL_PREFIX=" + install_path,
+        "-DBUILD_BINDINGS=OFF",
+        "-DBUILD_EXAMPLES=OFF",
+        "-DBUILD_SHARED_LIBS=OFF",
+        "-DBUILD_TESTS=OFF",
+        "-DCMAKE_BUILD_TYPE=Release"
+    ]
+    if not with_zlib:
+        cmake_args.append("-DWITH_ZLIB=OFF")
+
+    run_command(cmake_args + ["-G", generator], cwd=build_path)
+    run_command(["cmake", "--build", build_path])
+    run_command(["cmake", "--install", build_path])
+
+if platform.system() == "Windows":
+    make_command = "mingw32-make.exe"
+    cmake_generator = "MinGW Makefiles"
+elif  platform.system() == "Linux":
+    make_command = "make"
+    cmake_generator = "Unix Makefiles"
+else:
+    sys.exit()
+    
 RootPath = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TagLibPath = os.path.join(RootPath, "lib", "id3_editor", "taglib", "taglib")
 BuildPath = os.path.join(TagLibPath, "build")
 InstallPath = os.path.join(BuildPath, "Install")
 
-shutil.rmtree(TagLibPath, ignore_errors=True)
-os.makedirs(TagLibPath)
+clean_directory(TagLibPath)
+create_directory(TagLibPath)
 
-subprocess.run(["git", "submodule", "update", "--init"], shell=True, cwd=TagLibPath)
+run_command(["git", "submodule", "update", "--init"], cwd=TagLibPath)
 
-cmake_args = [
-    "cmake",
-    "-B", BuildPath,
-    "-S", TagLibPath,
-    "-DCMAKE_INSTALL_PREFIX=" + InstallPath,
-    "-DBUILD_BINDINGS=OFF",
-    "-DBUILD_EXAMPLES=OFF",
-    "-DBUILD_SHARED_LIBS=OFF",
-    "-DBUILD_TESTS=OFF",
-    "-DCMAKE_BUILD_TYPE=Release",
-    "-DWITH_ZLIB=OFF"
-]
+clean_directory(BuildPath)
+create_directory(BuildPath)
 
-make_command = "make"
-make_install_command = "make install"
-cmake_generator = "Unix Makefiles"
-
-if platform.system() == "Windows":
-    make_command = "mingw32-make.exe"
-    make_install_command = "mingw32-make.exe install"
-    cmake_generator = "MinGW Makefiles"
-
-if os.path.exists(BuildPath):
-    shutil.rmtree(BuildPath, ignore_errors=True)
-os.makedirs(BuildPath)
-
-subprocess.run(cmake_args + ["-G", cmake_generator], shell=True, cwd=BuildPath)
-subprocess.run([make_command], shell=True, cwd=BuildPath)
-subprocess.run(make_install_command, shell=True, cwd=BuildPath)
+configure_and_build_taglib(BuildPath, InstallPath, cmake_generator, with_zlib=False)
