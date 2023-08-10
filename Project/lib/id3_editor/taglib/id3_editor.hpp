@@ -20,7 +20,7 @@ private:
 
 public:
   static Id3Editor* Instance();
-  void EditID3(const std::string& song_path, const SongId3& song_id3) override;
+  void EditID3(const std::string& song_path, const SongId3& song_id3);
   std::uint32_t GetDuration(const std::string& song_path);
 };
 

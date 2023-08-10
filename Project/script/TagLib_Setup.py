@@ -20,18 +20,18 @@ def configure_and_build_taglib(build_path, install_path, generator):
         "-B", build_path,
         "-S", TagLibPath,
         "-DCMAKE_INSTALL_PREFIX=" + install_path,
+        "-DWITH_ZLIB=OFF"
         "-DBUILD_BINDINGS=OFF",
         "-DBUILD_EXAMPLES=OFF",
         "-DBUILD_SHARED_LIBS=OFF",
         "-DBUILD_TESTS=OFF",
-        "-DCMAKE_BUILD_TYPE=Release"
-        "-DENABLE_CCACHE=OFF"
-        "-DENABLE_STATIC_RUNTIME=OFF"
-        "-DNO_ITUNES_HACKS=OFF"
-        "-DPLATFORM_WINRT=OFF"
-        "-DTRACE_IN_RELEASE=OFF"
-        "-VISIBILITY_HIDDEN=OFF"
-        "-DWITH_ZLIB=OFF"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DENABLE_CCACHE=OFF",
+        "-DENABLE_STATIC_RUNTIME=OFF",
+        "-DNO_ITUNES_HACKS=OFF",
+        "-DPLATFORM_WINRT=OFF",
+        "-DTRACE_IN_RELEASE=OFF",
+        "-DWITH_ZLIB=OFF",
     ]
 
     run_command(cmake_args + ["-G", generator], cwd=build_path)
