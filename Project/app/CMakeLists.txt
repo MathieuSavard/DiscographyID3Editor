@@ -2,6 +2,7 @@ set(APP_TARGET_NAME app)
 
 set(SOURCES
   app.cpp
+  file_system.cpp
 )
 
 add_library(${APP_TARGET_NAME} STATIC ${SOURCES})

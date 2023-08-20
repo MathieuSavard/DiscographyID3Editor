@@ -20,7 +20,6 @@ def configure_and_build_taglib(build_path, install_path, generator):
         "-B", build_path,
         "-S", TagLibPath,
         "-DCMAKE_INSTALL_PREFIX=" + install_path,
-        "-DWITH_ZLIB=OFF"
         "-DBUILD_BINDINGS=OFF",
         "-DBUILD_EXAMPLES=OFF",
         "-DBUILD_SHARED_LIBS=OFF",
