@@ -14,7 +14,7 @@ const string duration_separator = ":";
 const string information_file_extension = "txt";
 const string album_cover_file_extension = "jpg";
 const string song_file_extension = "mp3";
-const string path_slash_separator = "/";
+const string path_slash_separator = "\\";
 
 class Application {
 public:
