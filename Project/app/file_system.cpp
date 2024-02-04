@@ -58,6 +58,10 @@ bool FileSystem::GetFileExtension(const std::string& path, std::string& file_ext
       return false;
         
     file_extension_out = fs_path.extension().string();
+
+     if (!file_extension_out.empty()) 
+        file_extension_out.erase(0, 1);
+
     return true;
 }
 
