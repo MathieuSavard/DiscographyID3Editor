@@ -1,0 +1,2 @@
+@echo off
+yt-dlp.exe --rm-cache-dir --rm-cache-dir --no-part --download-archive archives.txt --ffmpeg-location "ffmpeg/bin" --extract-audio --audio-format "mp3" -o "Artist/%%(playlist_title)s/%%(playlist_index)s.%%(ext)s" -a "playlists.txt"
