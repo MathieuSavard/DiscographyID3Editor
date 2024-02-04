@@ -1,8 +1,7 @@
-youtube-dl/archives.txt
-youtube-dl/Artist/*
-youtube-dl/youtube-dl.exe
-youtube-dl/ffmpeg/*
+yt-dlp/archives.txt
+yt-dlp/Artist/*
+yt-dlp/yt-dlp.exe
+yt-dlp/ffmpeg/*
 Project/.vs/*
 Project/out/*
 Project/build/*
-Project_POC/build/*
