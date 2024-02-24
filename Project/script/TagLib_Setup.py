@@ -23,7 +23,7 @@ def configure_and_build_taglib(build_path, install_path, generator):
         "-DBUILD_BINDINGS=OFF",
         "-DBUILD_EXAMPLES=OFF",
         "-DBUILD_SHARED_LIBS=OFF",
-        "-DBUILD_TESTS=OFF",
+        "-DBUILD_TESTING=OFF",
         "-DCMAKE_BUILD_TYPE=Release",
         "-DENABLE_CCACHE=OFF",
         "-DENABLE_STATIC_RUNTIME=OFF",
@@ -52,11 +52,11 @@ BuildPath = os.path.join(TagLibPath, "build")
 InstallPath = os.path.join(BuildPath, "Install")
 
 clean_directory(TagLibPath)
+clean_directory(BuildPath)
+
 create_directory(TagLibPath)
+create_directory(BuildPath)
 
 run_command(["git", "submodule", "update", "--init"], cwd=TagLibPath)
-
-clean_directory(BuildPath)
-create_directory(BuildPath)
 
 configure_and_build_taglib(BuildPath, InstallPath, cmake_generator)
