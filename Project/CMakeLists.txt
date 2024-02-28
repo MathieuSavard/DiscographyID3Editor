@@ -5,11 +5,10 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 ##########################################
 
-add_subdirectory(lib_new)
-add_subdirectory(app)
+add_subdirectory(lib)
 
 add_executable(${PROJECT_NAME}
   main.cpp
-  )
+)
 
-target_link_libraries(${PROJECT_NAME} PUBLIC app)
+target_link_libraries(${PROJECT_NAME} PUBLIC printer)

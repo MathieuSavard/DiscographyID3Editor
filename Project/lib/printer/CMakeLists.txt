@@ -1,7 +1,7 @@
-project(id3_editor)
+project(printer)
 
 set(SOURCES
-  itf_id3_editor.cpp
+  itf_printer.cpp
 )
 
 add_library(${PROJECT_NAME} STATIC ${SOURCES})

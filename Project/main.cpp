@@ -1,6 +1,4 @@
-#include "app.hpp"
+#include "itf_printer.hpp"
 
 int main(int argc, char* argv[]) {
-  Application app;
-  return app.Start();
 }
