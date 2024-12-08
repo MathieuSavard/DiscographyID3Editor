@@ -1,7 +1,4 @@
-yt-dlp/archives.txt
-yt-dlp/Artist/*
-yt-dlp/yt-dlp.exe
-yt-dlp/ffmpeg/*
-Project/.vs/*
-Project/out/*
-Project/build/*
+archives.txt
+Artist/*
+yt-dlp.exe
+ffmpeg.exe
